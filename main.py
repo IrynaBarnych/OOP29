@@ -1,18 +1,36 @@
-class Clock:
-    def __init__(self, hours, minutes):
-        self.hours = hours
-        self.minutes = minutes
-    def display_times(self):
-        print(f'{self.hours:02d}:{self.minutes:02d}')
-class AnalogClock(Clock):
-    def display_times(self):
-        super().display_times()
+class Animal:
+    def __init__(self, name,species, sound):
+        self.name = name
+        self.sound = sound
+        self.species = species
 
-class DigitalClock(Clock):
-    def display_times(self):
-        super().display_times()
+    def make_sound(self):
+        print(f'{self.name} каже {self.sound}')
+    def move(self):
+        print(f'{self.species} {self.name} рухатися')
+    def move(self):
+        print(f'{self.species} {self.name} плаває')
 
-analog_clock = AnalogClock(1, 45)
-digital_clock = DigitalClock(15, 43)
-analog_clock.display_times()
-digital_clock.display_times()
+class Tiger(Animal):
+    def __init__(self, name):
+        super().__init__(name, "Tiger", "Road")
+
+    def swim(self):
+        super().swim()
+
+
+class Crocodile(Animal):
+    def __init__(self, name):
+        super().__init__(name, "Crocodale", "Rrrr")
+
+    def swim(self):
+        super().swim()
+
+tiger =Tiger ("Loki")
+crocodie = Crocodile("Sherhan")
+crocodie.swim()
+tiger.swim()
+
+
+
+
