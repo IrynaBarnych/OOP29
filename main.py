@@ -39,9 +39,21 @@ class Student(Person):
             print(subject)
 class Teacher(Person):
     def __init__(self, name, age, gender, employee_id):
-        super().__init__(self, name, age, gender)
+        super().__init__(name, age, gender)
         self.employee_id = employee_id
+    def get_employee_id(self):
+        return self.__get_employee_id
+
+    def add_grades(self, student, grades):
+        print(f'Вчитель {self.name} виставив оцінку для {student.name}')
+        for subject, grade in grades.items():
+            print(f"по предмету {subject} оцінка {grade}")
+
+
 student1 = Student("Oleg", 15, "male", 12)
 student2 = Student("Olga", 16, "female", 13)
 print(f"Студент на ім'я {student1.name} з id: {student1.get_student_id}")
 student1.display_subject(['Math', 'Scien', 'History'])
+
+teacher1 = Teacher('пан Михайло', 35, "male", 125)
+teacher1.add_grades(student1, {"Math": "A", "Science": "B", "Histore": "C"})
