@@ -11,7 +11,7 @@ class Animal:
     def make_sound(self):
         print(f'{self.species} {self.name} каже {self.sound}')
     def move(self):
-        print(f'{self.species} {self.name} рухатися')
+        print(f'{self.species} {self.name} пригає')
     def swim(self):
         print(f"{self.species} {self.name} плаває")
 
@@ -29,11 +29,23 @@ class Crocodie(Animal):
     def swim(self):
         super().swim()
 
+class Kangaroo(Animal):
+    def __init__(self, name):
+        super().__init__(name, "Kangaroo", "snore")
+
+    def move(self):
+        super().move()
+
 tiger = Tiger("Шерхан")
 crocodie = Crocodie("Локі")
+kangaroo = Kangaroo("Ді")
+tiger.make_sound()
+crocodie.make_sound()
+kangaroo.make_sound()
 crocodie.swim()
 tiger.swim()
-crocodie.make_sound()
+kangaroo.move()
+
 
 
 
