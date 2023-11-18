@@ -41,7 +41,6 @@ class Blender(Device):
         print(f'Інформація про кількість насадок, шт.: {self.number_of_nozzles}')
         print(f'Чи можна використовувати як міксер: {self.mixer}')
 
-
 class MeatGrinder(Device):
     def __init__(self, name, power, application, weight, electric_or_manual):
         super().__init__(name, power, application, weight)
