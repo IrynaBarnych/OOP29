@@ -1,72 +1,71 @@
-# Завдання 1
-# Створіть клас Device, який містить інформацію про пристрій.
-# За допомогою механізму успадкування реалізуйте клас Coffee Machine (містить інформацію про кавомашину),
-# клас Blender (містить інформацію про блендер), клас MeatGrinder (містить інформацію про м’ясорубку).
+# Завдання 2
+# Створіть клас Ship, який містить інформацію про кораблі.
+# За допомогою механізму успадкування реалізуйте клас Frigate (містить інформацію про фрегат), клас Destroyer (містить
+# інформацію про есмінця), клас Cruiser (містить інформацію про крейсер).
 # Кожен із класів має містити необхідні для роботи методи.
 
-class Device:
-    def __init__(self, name, power, application, weight):
+class Ship:
+    def __init__(self, name, displacement, length, max_speed):
         self.name = name
-        self.power = power
-        self.application = application
-        self.weight = weight
+        self.displacement = displacement
+        self.length = length
+        self.max_speed = max_speed
 
     def display_info(self):
-        print(f'Назва: {self.name}')
-        print(f'Потужність, кВт: {self.power}')
-        print(f'Застосування: {self.application}')
-        print(f'Вага, кг: {self.weight}')
+        print(f'Назва корабля: {self.name}')
+        print(f'Водотоннажність: {self.displacement} тонн')
+        print(f'Довжина: {self.length} метрів')
+        print(f'Максимальна швидкість: {self.max_speed} вузлів')
 
 
-class Coffee_Machine(Device):
-    def __init__(self, name, power, application, weight, typ_coffee, milk):
-        super().__init__(name, power, application, weight)
-        self.typ_coffee = typ_coffee
-        self.milk = milk
-
-    def display_info(self):
-        super().display_info()
-        print(f'Інформація про тип кави: {self.typ_coffee}')
-        print(f'Інформація про використання молока: {self.milk}')
-
-
-class Blender(Device):
-    def __init__(self, name, power, application, weight, number_of_nozzles, mixer):
-        super().__init__(name, power, application, weight)
-        self.number_of_nozzles = number_of_nozzles
-        self.mixer = mixer
+class Frigate(Ship):
+    def __init__(self, name, displacement, length, max_speed, missile_system):
+        super().__init__(name, displacement, length, max_speed)
+        self.missile_system = missile_system
 
     def display_info(self):
         super().display_info()
-        print(f'Інформація про кількість насадок, шт.: {self.number_of_nozzles}')
-        print(f'Чи можна використовувати як міксер: {self.mixer}')
+        print(f'Інформація про систему ракет: {self.missile_system}')
 
-class MeatGrinder(Device):
-    def __init__(self, name, power, application, weight, electric_or_manual):
-        super().__init__(name, power, application, weight)
-        self.electric_or_manual = electric_or_manual
+
+class Destroyer(Ship):
+    def __init__(self, name, displacement, length, max_speed, artillery, torpedoes):
+        super().__init__(name, displacement, length, max_speed)
+        self.artillery = artillery
+        self.torpedoes = torpedoes
 
     def display_info(self):
         super().display_info()
-        print(f"М'ясоручка ручна або електрична: {self.electric_or_manual}")
+        print(f'Інформація про артилерію: {self.artillery}')
+        print(f'Інформація про торпеди: {self.torpedoes}')
 
-# Приклад використання:
 
-coffee_machine_info = Coffee_Machine("кавомашина", 1200, "приготування кави",
-                                     10, "еспресо", "так")
-blender_info = Blender("Блендер", 500, "змішування продуктів",
-                       5, 3, "так")
-meatGrinder_info = MeatGrinder("м'ясорубка", 800, "приготування м'ясних страв",
-                               7, "електрична")
+class Cruiser(Ship):
+    def __init__(self, name, displacement, length, max_speed, num_missiles, radar_system):
+        super().__init__(name, displacement, length, max_speed)
+        self.num_missiles = num_missiles
+        self.radar_system = radar_system
 
-print("Інформація про кавомашину:")
-coffee_machine_info.display_info()
+    def display_info(self):
+        super().display_info()
+        print(f'Кількість ракет на борту: {self.num_missiles}')
+        print(f'Інформація про радарну систему: {self.radar_system}')
 
-print("\nІнформація про блендер:")
-blender_info.display_info()
+frigate_info = Frigate("Фрегат", 3500, 123, 30, "Aegis")
+destroyer_info = Destroyer("Есмінець", 5000, 150, 35, "120 mm",
+                           "torpedoes")
+cruiser_info = Cruiser("Крейсер", 8000, 180, 25, 80,
+                       "AN/SPY-1D radar")
 
-print("\nІнформація про м'ясорубку:")
-meatGrinder_info.display_info()
+print("Інформація про фрегат:")
+frigate_info.display_info()
+
+print("\nІнформація про есмінець:")
+destroyer_info.display_info()
+
+print("\nІнформація про крейсер:")
+cruiser_info.display_info()
+
 
 
 
