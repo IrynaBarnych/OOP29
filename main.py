@@ -19,19 +19,6 @@ class Passport:
         print(f'Громадянство: {self.citizenship}')
         print(f'Реєстрація: {self.registration}')
 
-    def new_name(self):
-        print(f'{self.name} Шевченко Т.Г.')
-
-    def new_date_of_birth(self):
-        print(f'{self.name} 09.03.1814')
-
-    def new_citizenship(self):
-        print(f"{self.name} українець")
-
-    def new_registration(self):
-        print(f"{self.name} селі Моринці, Житомирська область")
-
-
 class ForeignPassport(Passport):
     def __init__(self, name, date_of_birth, citizenship, registration, data_on_visas, number_foreign_passport):
         super().__init__(name, date_of_birth, citizenship, registration)
@@ -43,12 +30,6 @@ class ForeignPassport(Passport):
         print(f'Інформація про візи: {self.data_on_visas}')
         print(f'Номер закордонного паспорта: {self.number_foreign_passport}')
 
-    def new_data_on_visas(self):
-        print(f"{self.name} ")
-
-    def new_number_foreign_passport(self):
-        print(f"{self.name} ")
-
 
 passport_info = Passport("Тарас Григорович Шевченко", "09.03.1814",
                          "Україна", "селі Моринці, Житомирська область")
@@ -56,7 +37,7 @@ passport_info = Passport("Тарас Григорович Шевченко", "09
 foreign_passport_info = ForeignPassport("Тарас Григорович Шевченко", "09.03.1814",
                                        "Україна", "селі Моринці, Житомирська область",
                                        "Дані про візи",
-                                       "Номер закордонного паспорта")
+                                       "№123456789")
 
 print("Інформація звичайного паспорта:")
 passport_info.display_info()
