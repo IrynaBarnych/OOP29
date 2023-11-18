@@ -31,13 +31,6 @@ class Builder(Human):
         print(f'Інформація про досвід роботи: {self.experience}')
         print(f'Інформація про кваліфікацію: {self.qualification}')
 
-    def new_experience(self):
-        print(f"{self.name} ")
-
-    def new_qualification(self):
-        print(f"{self.name} ")
-
-
 class Sailor(Human):
     def __init__(self, name, date_of_birth, registration, citizenship, rank, experience_at_sea):
         super().__init__(name, date_of_birth, registration, citizenship)
@@ -61,8 +54,6 @@ class Pilot(Human):
         print(f'Інформація про тип ліцензії: {self.license_type}')
         print(f'Інформація про досвід польоту: {self.flying_experience}')
 
-
-# Приклад використання:
 
 builder_info = Builder("Петро", "01.01.1990", "м. Київ", "Україна",
                        "Будівельний сертифікат", "10 років", "Вища")
