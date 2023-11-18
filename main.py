@@ -31,7 +31,7 @@ class Crocodie(Animal):
 
 class Kangaroo(Animal):
     def __init__(self, name):
-        super().__init__(name, "Kangaroo", "snore")
+        super().__init__(name, "Kangaroo", "Snore")
 
     def move(self):
         super().move()
