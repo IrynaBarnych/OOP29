@@ -1,90 +1,73 @@
 # Завдання 1
-# Створіть клас Human, який міститиме інформацію про людину.
-# За допомогою механізму успадкування реалізуйте клас Builder (містить інформацію про будівельника),
-# клас Sailor (містить інформацію про моряка), клас Pilot (містить інформацію про льотчика).
+# Створіть клас Device, який містить інформацію про пристрій.
+# За допомогою механізму успадкування реалізуйте клас Coffee Machine (містить інформацію про кавомашину),
+# клас Blender (містить інформацію про блендер), клас MeatGrinder (містить інформацію про м’ясорубку).
 # Кожен із класів має містити необхідні для роботи методи.
 
-
-class Human:
-    def __init__(self, name, date_of_birth, registration, citizenship):
+class Device:
+    def __init__(self, name, power, application, weight):
         self.name = name
-        self.date_of_birth = date_of_birth
-        self.registration = registration
-        self.citizenship = citizenship
+        self.power = power
+        self.application = application
+        self.weight = weight
 
     def display_info(self):
-        print(f'Ім\'я: {self.name}')
-        print(f'Дата народження: {self.date_of_birth}')
-        print(f'Громадянство: {self.citizenship}')
-        print(f'Реєстрація: {self.registration}')
-
-class Builder(Human):
-    def __init__(self, name, date_of_birth, registration, citizenship, certificate, experience, qualification):
-        super().__init__(name, date_of_birth, registration, citizenship)
-        self.certificate = certificate
-        self.experience = experience
-        self.qualification = qualification
-
-    def display_info(self):
-        super().display_info()
-        print(f'Інформація про сертифікат: {self.certificate}')
-        print(f'Інформація про досвід роботи: {self.experience}')
-        print(f'Інформація про кваліфікацію: {self.qualification}')
-
-    def new_experience(self):
-        print(f"{self.name} ")
-
-    def new_qualification(self):
-        print(f"{self.name} ")
+        print(f'Назва: {self.name}')
+        print(f'Потужність, кВт: {self.power}')
+        print(f'Застосування: {self.application}')
+        print(f'Вага, кг: {self.weight}')
 
 
-class Sailor(Human):
-    def __init__(self, name, date_of_birth, registration, citizenship, rank, experience_at_sea):
-        super().__init__(name, date_of_birth, registration, citizenship)
-        self.rank = rank
-        self.experience_at_sea = experience_at_sea
+class Coffee_Machine(Device):
+    def __init__(self, name, power, application, weight, typ_coffee, milk):
+        super().__init__(name, power, application, weight)
+        self.typ_coffee = typ_coffee
+        self.milk = milk
 
     def display_info(self):
         super().display_info()
-        print(f'Інформація про досвід на морі: {self.experience_at_sea}')
-        print(f'Інформація про ранг: {self.rank}')
+        print(f'Інформація про тип кави: {self.typ_coffee}')
+        print(f'Інформація про використання молока: {self.milk}')
 
 
-class Pilot(Human):
-    def __init__(self, name, date_of_birth, registration, citizenship, license_type, flying_experience):
-        super().__init__(name, date_of_birth, registration, citizenship)
-        self.license_type = license_type
-        self.flying_experience = flying_experience
+class Blender(Device):
+    def __init__(self, name, power, application, weight, number_of_nozzles, mixer):
+        super().__init__(name, power, application, weight)
+        self.number_of_nozzles = number_of_nozzles
+        self.mixer = mixer
 
     def display_info(self):
         super().display_info()
-        print(f'Інформація про тип ліцензії: {self.license_type}')
-        print(f'Інформація про досвід польоту: {self.flying_experience}')
+        print(f'Інформація про кількість насадок, шт.: {self.number_of_nozzles}')
+        print(f'Чи можна використовувати як міксер: {self.mixer}')
 
+
+class MeatGrinder(Device):
+    def __init__(self, name, power, application, weight, electric_or_manual):
+        super().__init__(name, power, application, weight)
+        self.electric_or_manual = electric_or_manual
+
+    def display_info(self):
+        super().display_info()
+        print(f"М'ясоручка ручна або електрична: {self.electric_or_manual}")
 
 # Приклад використання:
 
-builder_info = Builder("Петро", "01.01.1990", "м. Київ", "Україна",
-                       "Будівельний сертифікат", "10 років", "Вища")
+coffee_machine_info = Coffee_Machine("кавомашина", 1200, "приготування кави",
+                                     10, "еспресо", "так")
+blender_info = Blender("Блендер", 500, "змішування продуктів",
+                       5, 3, "так")
+meatGrinder_info = MeatGrinder("м'ясорубка", 800, "приготування м'ясних страв",
+                               7, "електрична")
 
-sailor_info = Sailor("Олександр", "15.05.1985", "м. Одеса", "Україна",
-                     "Капітан", "20")
+print("Інформація про кавомашину:")
+coffee_machine_info.display_info()
 
-pilot_info = Pilot("Іван", "03.12.1978", "м. Київ", "Україна",
-                   "Комерційна", "5000")
+print("\nІнформація про блендер:")
+blender_info.display_info()
 
-print("Інформація про будівельника:")
-builder_info.display_info()
-
-print("\nІнформація про моряка:")
-sailor_info.display_info()
-
-print("\nІнформація про пілота:")
-pilot_info.display_info()
-
-
-
-
+print("\nІнформація про м'ясорубку:")
+meatGrinder_info.display_info()
 
 
 
