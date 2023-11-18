@@ -1,50 +1,36 @@
-# Завдання 3
-# Створіть базовий клас «Тварина» та похідні класи:
-# «Тигр», «Крокодил», «Кенгуру». Встановіть за допомогою конструктора ім’я кожної тварини та її характеристики.
-# Створіть для кожного класу необхідні методи та поля.
-class Animal:
-    def __init__(self, name, species, sound):
+# Завдання 2
+# Створіть клас Passport (паспорт), який міститиме паспортну інформацію про громадянина заданої країни.
+# За допомогою механізму успадкування реалізуйте клас ForeignPassport (закордонний паспорт), похідний
+# від Passport.
+# Нагадаємо, що закордонний паспорт містить, крім паспортних даних, дані про візи і номер закордонного
+# паспорта. Кожен із класів має містити необхідні методи.
+
+
+class Passport:
+    def __init__(self, name, date_of_birth, citizenship, registration):
         self.name = name
-        self.sound = sound
-        self.species = species
+        self.date_of_birth = date_of_birth
+        self.citizenship = citizenship
+        self.registration = registration
 
-    def make_sound(self):
-        print(f'{self.species} {self.name} каже {self.sound}')
-    def move(self):
-        print(f'{self.species} {self.name} пригає')
-    def swim(self):
-        print(f"{self.species} {self.name} плаває")
+    def display_info(self):
+        print(f'Ім\'я: {self.name}')
+        print(f'Дата народження: {self.date_of_birth}')
+        print(f'Громадянство: {self.citizenship}')
+        print(f'Реєстрація: {self.registration}')
 
-class Tiger(Animal):
-    def __init__(self, name):
-        super().__init__(name, "Tiger", "Roar")
 
-    def swim(self):
-        super().swim()
+class ForeignPassport(Passport):
+    def __init__(self, name, date_of_birth, citizenship, registration, data_on_visas, number_foreign_passport):
+        super().__init__(name, date_of_birth, citizenship, registration)
+        self.data_on_visas = data_on_visas
+        self.number_foreign_passport = number_foreign_passport
 
-class Crocodie(Animal):
-    def __init__(self, name):
-        super().__init__(name, "Crocodie", "Rrrrrrrr")
+    def display_info(self):
+        super().display_info()
+        print(f'Інформація про візи: {self.data_on_visas}')
+        print(f'Номер закордонного паспорта: {self.number_foreign_passport}')
 
-    def swim(self):
-        super().swim()
-
-class Kangaroo(Animal):
-    def __init__(self, name):
-        super().__init__(name, "Kangaroo", "snore")
-
-    def move(self):
-        super().move()
-
-tiger = Tiger("Шерхан")
-crocodie = Crocodie("Локі")
-kangaroo = Kangaroo("Ді")
-tiger.make_sound()
-crocodie.make_sound()
-kangaroo.make_sound()
-crocodie.swim()
-tiger.swim()
-kangaroo.move()
 
 
 
